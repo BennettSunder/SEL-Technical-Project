@@ -1,0 +1,150 @@
+/*  Yes, I did in fact make all of the CSS for this.
+    Thank you for checking, I really appreciate your
+    meticulousness. */
+
+
+
+
+
+/* mostly universal styling */
+*{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #eee;
+}
+
+body{
+  display: grid;
+  place-items: center;
+  height: 80vh;
+}
+
+.container{
+  padding: 5vw;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px #3333;
+}
+
+.header{
+  padding: 1vw;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px #3333;
+}
+
+h1{
+  font-size: 5vh;
+  text-align: center;
+  justify-content: center;
+}
+
+h2{
+  font-size: 3vh;
+  text-align: center;
+  justify-content: center;
+}
+
+.contents{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 1vw;
+  padding: 12px;
+  margin: 2vh 0px 5vh 0px;
+}
+
+a{
+  color:#333;
+  transition: 200ms;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  justify-content: center;
+  font-size: 2vh;
+}
+a:hover{
+  scale: 1.1;
+  box-shadow: 5px 5px 12px #3333, -5px -5px 12px #fff;
+}
+
+.too-small{
+  font-size: 20vh;
+  display: none;
+}
+.nooo{
+  font-size: 40vh;
+  display: none;
+}
+
+/* media queries for main page */
+
+@media (max-height: 400px) {
+  .too-small{
+    display: block;
+  }
+  .header{
+    display: none;
+  }
+  .contents{
+    display: none;
+  }
+}
+
+@media (max-height: 100px){
+  .too-small{
+    display: none;
+  }
+  .header{
+    display: none;
+  }
+  .contents{
+    display: none;
+  }
+  .nooo{
+    display: block;
+  }
+}
+
+
+/* prompt 1 */
+
+.prompt-1 {
+  width: 30vw;
+}
+
+.prompt-1 > input[type=text]{
+  border: solid 1px #90959a;
+  padding: 7px;
+  border-radius: 1px;
+  max-height: max-content;
+}
+
+#add-btn-1{
+  border: solid 1px #3984e8;
+  padding: 7px;
+  background-color: #0954b8;
+  color: white;
+  font-weight: bold;
+  /* font-size: 20px; */
+  border-radius: 2px;
+}
+#add-btn:hover{
+  background-color: #3984e8;
+}
+
+.prompt-1 > #list{
+  width: 100%;
+  max-width: 200px;
+  min-width: 80px;
+  border: solid 1px #90959a;
+  min-height: 300px;
+}
+
+.prompt-1 > #list > div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #90959a;
+  list-style-type: none;
+  padding: 8px;
+}
+
+.prompt-1 > #list > div > button {
+  border: none;
+}
