@@ -106,7 +106,10 @@ a:hover{
 /* prompt 1 */
 
 .prompt-1 {
-  width: 30vw;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 13px;
+  row-gap: 15px;
 }
 
 .prompt-1 > input[type=text]{
@@ -130,11 +133,11 @@ a:hover{
 }
 
 .prompt-1 > #list{
-  width: 100%;
-  max-width: 200px;
+  width: 99%;
   min-width: 80px;
   border: solid 1px #90959a;
   min-height: 300px;
+  grid-column: span 2;
 }
 
 .prompt-1 > #list > div {
