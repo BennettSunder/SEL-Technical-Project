@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="second.js"></script>
+</head>
+<body onload="dragElement('dialogue-container')">
+    <div class="container">
+        <div class="dialogue-button" onclick="openDialogue()">Open Dialogue</div>
+        <div>Confirmation Counter: <div id="confirm-counter">0</div></div>
+    </div>
+    <div id="full-grey-out">
+        <div id="dialogue-container">
+            <div class="exit-container">
+                <div></div>
+                <button class="exit-button" onclick="cancelDialogue()">&#10540;</button>
+            </div>
+            <div class="dialogue-box">
+                <h3>Add to Confirmation Counter</h3>
+                <div id="precounter">0</div>
+                <div class="button-holder">
+                    <button class="val-change-button" onclick="changeConf(-1)">-</button>
+                    <button class="val-change-button" onclick="changeConf(1)">+</button>
+                    <button class="dialogue-button" onclick="addCount()">Save</button>
+                    <button class="cancel-button" onclick="cancelDialogue()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="index.html">back</a>
+</body>
+</html>
