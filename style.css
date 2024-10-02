@@ -1,4 +1,3 @@
-
 /*  Yes, I did in fact make all of the CSS for this.
     Thank you for checking, I really appreciate your
     meticulousness. */
@@ -16,7 +15,9 @@
 body{
   display: grid;
   place-items: center;
-  height: 80vh;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0px;
 }
 
 .container{
@@ -107,10 +108,7 @@ a:hover{
 /* prompt 1 */
 
 .prompt-1 {
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 13px;
-  row-gap: 15px;
+  width: 30vw;
 }
 
 .prompt-1 > input[type=text]{
@@ -134,11 +132,11 @@ a:hover{
 }
 
 .prompt-1 > #list{
-  width: 99%;
+  width: 100%;
+  max-width: 200px;
   min-width: 80px;
   border: solid 1px #90959a;
   min-height: 300px;
-  grid-column: span 2;
 }
 
 .prompt-1 > #list > div {
@@ -151,4 +149,137 @@ a:hover{
 
 .prompt-1 > #list > div > button {
   border: none;
+}
+
+
+
+/* second prompt */
+
+
+#dialogue-container{
+  padding: 2px;
+  border-radius: 1px;
+  box-shadow: 3px 3px 10px #3333;
+  position: absolute;
+  cursor: grab;
+}
+
+.dialogue-button{
+  border: solid 1px #3984e8;
+  padding: 7px;
+  background-color: #0954b8;
+  color: white;
+  font-weight: bold;
+  border-radius: 2px;
+  text-align: center;
+  transition: 150ms;
+  
+}
+.dialogue-button:hover{
+  scale: 1.1;
+  box-shadow: 2px 2px 5px #3333;
+  cursor: pointer;
+}
+
+.dialogue-box{
+  background-color: #eee;
+  padding: 20px;
+  width: 80vw;
+  max-width: 330px;
+}
+
+.dialogue-box > h3 {
+  color: #0954b8;
+}
+
+.button-holder{
+  display: grid;
+  /* justify-content: space-between; */
+  grid-template-columns: auto auto auto auto;
+  column-gap: 12px;
+}
+
+.val-change-button{
+  border: solid 1px #90959a;
+  padding: 7px;
+  background-color: #eee;
+  color: #333;
+  font-weight: bold;
+  border-radius: 2px;
+  text-align: center;
+  transition: 150ms;
+  min-width: 80px;
+  width: 4vw;
+  cursor: pointer;
+}
+
+.cancel-button{
+  border: solid 1px #90959a;
+  padding: 7px;
+  background-color: #eee;
+  color: #333;
+  font-weight: bold;
+  border-radius: 2px;
+  text-align: center;
+  transition: 150ms;
+  cursor: pointer;
+}
+.cancel-button:hover{
+  scale: 1.05;
+  box-shadow: 2px 2px 5px #3333;
+}
+
+#confirm-counter{
+  display: inline;
+}
+
+.exit-container{
+  position: absolute;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: auto auto;
+  width: 80vw;
+  max-width: 370px;
+  justify-items: end;
+  margin: auto;
+}
+
+.exit-button{
+  border: solid 1px #90959a;
+  padding: 3px 6px;
+  background-color: #eee;
+  color: #333;
+  font-weight: bold;
+  border-radius: 2px;
+  text-align: center;
+  transition: 150ms;
+  cursor: pointer;  
+}
+.exit-button:hover{
+  scale: 1.05;
+  box-shadow: 2px 2px 5px #3333;
+}
+
+#precounter{
+  height: 25vh;
+  width:auto;
+  background-color: #3333;
+  display: grid;
+  place-items: center;
+  font-size: 10vh;
+  margin: 24px auto 24px auto;
+}
+
+
+#full-grey-out{
+  width: 100vw;
+  height: 150vh;
+  background-color: #08101761;
+  /* display: grid; */
+  display: none;
+  place-items: center;
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
 }
