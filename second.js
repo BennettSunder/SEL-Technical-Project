@@ -1,28 +1,37 @@
 function openDialogue(){
     document.getElementById('full-grey-out').style.display = 'grid';
-    document.getElementById('precounter').innerHTML = 0;
+    document.getElementById('dialogue-container').style.display = 'block';
+    document.getElementById('precounter').value = 0;
     resetDragPos(document.getElementById('dialogue-container'));
 }
 
 function cancelDialogue(){
     document.getElementById('full-grey-out').style.display = 'none';
-    document.getElementById('precounter').innerHTML = 0;
+    document.getElementById('dialogue-container').style.display = 'none';
+    document.getElementById('precounter').value = 0;
 }
 
-function changeConf(amount){
-    let count = parseInt(document.getElementById('precounter').innerHTML);
-    count += amount;
-    document.getElementById('precounter').innerHTML = count;
-}
+//old version
+
+// function changeConf(amount){
+//     let count = parseInt(document.getElementById('precounter').innerHTML);
+//     count += amount;
+//     document.getElementById('precounter').value = count;
+// }
 
 function addCount(){
-    let amount = parseInt(document.getElementById('precounter').innerHTML);
+    let amount = parseInt(document.getElementById('precounter').value);
     let currentCount = parseInt(document.getElementById('confirm-counter').innerHTML);
     currentCount += amount;
     document.getElementById('confirm-counter').innerHTML = currentCount;
     cancelDialogue();
 }
 
+document.onkeypress = function(event) {
+    if (event.key === "Enter") {
+        addCount();
+    }
+};
 
 // Didn't work. delete soon.
 
@@ -62,7 +71,8 @@ function addCount(){
 let nowDragging = null;
 let offset = [0,0];
 
-function dragElement(id){
+// sets the element being dragged to the 
+function dragElement(){
     let element = document.getElementById('dialogue-container');
     element.style.position = "absolute";
     element.onmousedown = function(){
@@ -77,21 +87,23 @@ function dragElement(id){
     });
 }
 
+//freezes dialog where it is
 document.onmouseup = function(){
     nowDragging = null;
 }
 
+// once the dialog is dragged
 document.onmousemove = function(move){
     let x = move.pageX;
     let y = move.pageY;
 
     nowDragging.style.left = x - offset[0] + "px";
-    nowDragging.style.top = y - offset[1] - (164 + (window.innerHeight * 0.2476)) + "px";
+    nowDragging.style.top = y - offset[1] - (189 + (window.innerHeight * 0.2476)) + "px";
     
 }
 
 
-
+// reset position
 function resetDragPos(element){
     let moveElement = element;
 
