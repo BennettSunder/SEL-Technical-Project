@@ -1,0 +1,43 @@
+{
+  "treeViewItems": [
+    {
+      "name": "Plants",
+      "children": [
+        {
+          "name": "Trees",
+          "children": [{ "name": "Oak" }, { "name": "Elm" }, { "name": "Ash" }]
+        },
+        {
+          "name": "Bushes",
+          "children": [
+            { "name": "Holley" },
+            { "name": "Hibiscus" },
+            { "name": "Jasmine" }
+          ]
+        },
+        { "name": "My Landscaper" }
+      ]
+    },
+    {
+      "name": "Animals",
+      "children": [
+        {
+          "name": "Mammals",
+          "children": [
+            { "name": "Human" },
+            { "name": "Lion" },
+            { "name": "Tiger" },
+            { "name": "Bear" }
+          ]
+        },
+        {
+          "name": "Reptiles",
+          "children": [{ "name": "Lizard" }, { "name": "Snake" }]
+        },
+        { "name": "Unicorn" },
+        { "name": "Omnicorn" },
+        { "name": "Dragon" }
+      ]
+    }
+  ]
+}

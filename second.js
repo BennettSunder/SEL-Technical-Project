@@ -1,3 +1,5 @@
+let old = false;
+
 function openDialogue(){
     document.getElementById('full-grey-out').style.display = 'grid';
     document.getElementById('dialogue-container').style.display = 'block';
@@ -11,15 +13,38 @@ function cancelDialogue(){
     document.getElementById('precounter').value = 0;
 }
 
+
+
+function oldVersion(){
+    if (!old){
+        document.querySelectorAll('[data-old="true"]').forEach(function(element) {
+            element.style.display = 'block';
+        });
+        document.querySelectorAll('[data-old="false"]').forEach(function(element) {
+            element.style.display = 'none';
+        });
+        
+    } else {
+        document.querySelectorAll('[data-old="true"]').forEach(function(element) {
+            element.style.display = 'none';
+        });
+        document.querySelectorAll('[data-old="false"]').forEach(function(element) {
+            element.style.display = 'grid';
+        });
+    }
+    old = !old;
+}
+
 //old version
 
-// function changeConf(amount){
-//     let count = parseInt(document.getElementById('precounter').innerHTML);
-//     count += amount;
-//     document.getElementById('precounter').value = count;
-// }
+function changeConf(amount){
+    let count = parseInt(document.getElementById('precounter').value);
+    count += amount;
+    document.getElementById('precounter').value = count;
+}
 
 function addCount(){
+   changeConf(1); 
     let amount = parseInt(document.getElementById('precounter').value);
     let currentCount = parseInt(document.getElementById('confirm-counter').innerHTML);
     currentCount += amount;
@@ -71,11 +96,10 @@ document.onkeypress = function(event) {
 let nowDragging = null;
 let offset = [0,0];
 
-// sets the element being dragged to the 
 function dragElement(){
     let element = document.getElementById('dialogue-container');
     element.style.position = "absolute";
-    element.onmousedown = function(){
+    document.getElementById('dialogue-header').onmousedown = function(){
         nowDragging = element;
         // alert(nowDragging)
          
@@ -87,23 +111,19 @@ function dragElement(){
     });
 }
 
-//freezes dialog where it is
 document.onmouseup = function(){
     nowDragging = null;
 }
 
-// once the dialog is dragged
+
 document.onmousemove = function(move){
     let x = move.pageX;
     let y = move.pageY;
 
     nowDragging.style.left = x - offset[0] + "px";
-    nowDragging.style.top = y - offset[1] - (189 + (window.innerHeight * 0.2476)) + "px";
-    
+    nowDragging.style.top = y - offset[1] - (130 + (window.innerHeight * 0.2476)) + "px";
 }
 
-
-// reset position
 function resetDragPos(element){
     let moveElement = element;
 

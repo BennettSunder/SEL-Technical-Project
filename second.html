@@ -15,21 +15,23 @@
     </div>
     <div id="full-grey-out" onclick="cancelDialogue()"></div>
     <div id="dialogue-container">
-        <div class="exit-container">
+        <div id="dialogue-header">
             <div></div>
             <button class="exit-button" onclick="cancelDialogue()">&#10540;</button>
+            <h3 onclick="oldVersion()">Add to Confirmation Counter</h3>
         </div>
+        <div class="line"></div>
         <div class="dialogue-box">
-            <h3>Add to Confirmation Counter</h3>
-            <div class="line"></div>
-            <input type="number" id="precounter" placeholder="0">
+            
+            <input type="number" id="precounter" placeholder="0" style="display: none;" data-old="true">
+            <div id="dialog-message" data-old="false">You are about to increase the confirmation counter by 1. Do you wish to continue?</div>
             <div class="button-holder">
-                <!-- from old version
-                <button class="val-change-button" onclick="changeConf(-1)">-</button>
-                <button class="val-change-button" onclick="changeConf(1)">+</button> -->
-                <div></div>
-                <div></div>
-                <button class="dialogue-button" onclick="addCount()">Save</button>
+                
+                <button class="val-change-button" onclick="changeConf(-1)" style="display: none;" data-old="true">-</button>
+                <button class="val-change-button" onclick="changeConf(1)" style="display: none;" data-old="true">+</button>
+                <div class="placeholder" data-old="false"></div>
+                <div class="placeholder" data-old="false"></div>
+                <button class="dialogue-button" onclick="addCount()">Confirm</button>
                 <button class="cancel-button" onclick="cancelDialogue()">Cancel</button>
             </div>
         </div>
