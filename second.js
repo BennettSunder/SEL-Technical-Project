@@ -1,4 +1,5 @@
 let old = false;
+let dragOffset = 130;
 
 function openDialogue(){
     document.getElementById('full-grey-out').style.display = 'grid';
@@ -23,7 +24,7 @@ function oldVersion(){
         document.querySelectorAll('[data-old="false"]').forEach(function(element) {
             element.style.display = 'none';
         });
-        
+        dragOffset = 196;
     } else {
         document.querySelectorAll('[data-old="true"]').forEach(function(element) {
             element.style.display = 'none';
@@ -31,22 +32,26 @@ function oldVersion(){
         document.querySelectorAll('[data-old="false"]').forEach(function(element) {
             element.style.display = 'grid';
         });
+        dragOffset = 127;
     }
     old = !old;
 }
 
-//old version
 
 function changeConf(amount){
-    let count = parseInt(document.getElementById('precounter').value);
+    let count = Math.round(parseInt(document.getElementById('precounter').value));
     count += amount;
     document.getElementById('precounter').value = count;
 }
 
 function addCount(){
-   changeConf(1); 
     let amount = parseInt(document.getElementById('precounter').value);
     let currentCount = parseInt(document.getElementById('confirm-counter').innerHTML);
+
+    if(!old){
+        amount = 1;
+    }
+    
     currentCount += amount;
     document.getElementById('confirm-counter').innerHTML = currentCount;
     cancelDialogue();
@@ -121,7 +126,7 @@ document.onmousemove = function(move){
     let y = move.pageY;
 
     nowDragging.style.left = x - offset[0] + "px";
-    nowDragging.style.top = y - offset[1] - (130 + (window.innerHeight * 0.2476)) + "px";
+    nowDragging.style.top = y - offset[1] - (dragOffset + (window.innerHeight * 0.2476)) + "px";
 }
 
 function resetDragPos(element){

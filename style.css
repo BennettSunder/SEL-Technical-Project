@@ -24,6 +24,11 @@ body{
   padding: 5vw;
   border-radius: 20px;
   box-shadow: 5px 5px 15px #3333;
+  max-height: 70vh;
+  min-width: 400px;
+  overflow: auto;
+  display: grid;
+  place-items: center;
 }
 
 .header{
@@ -75,15 +80,6 @@ a:hover{
   display: none;
 }
 
-.line{
-  height: 1PX;
-  width: auto;
-  background-color: #0954b8;
-  margin-top: 24;
-  margin-bottom: 24;
-  grid-column: 2;
-}
-
 /* media queries for main page */
 
 @media (max-height: 400px) {
@@ -117,14 +113,23 @@ a:hover{
 /* prompt 1 */
 
 .prompt-1 {
-  width: auto;
+  width: 30vw;
+  min-width: 300px;
 }
 
-.prompt-1 > input[type=text]{
+.head-1-cont{
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto auto;
+  column-gap: 5px;
+}
+
+.prompt-1 > .head-1-cont > input[type=text]{
   border: solid 1px #90959a;
   padding: 7px;
   border-radius: 1px;
   max-height: max-content;
+  columns: 4;
 }
 
 #add-btn-1{
@@ -141,11 +146,14 @@ a:hover{
 }
 
 .prompt-1 > #list{
+  width: 100%;
   width: auto;
   min-width: 80px;
   border: solid 1px #90959a;
   min-height: 300px;
-  margin-top: 12px;
+  margin-top: 6px;
+  max-height: 50vh;
+  overflow-y: auto;
 }
 
 .prompt-1 > #list > div {
@@ -209,7 +217,6 @@ a:hover{
 
 .button-holder{
   display: grid;
-  /* justify-content: space-between; */
   grid-template-columns: auto auto auto auto;
   column-gap: 12px;
 }
@@ -284,7 +291,7 @@ a:hover{
   display: grid;
   place-items: center;
   font-size: 10vh;
-  margin: 24px auto 24px auto;
+  margin: 90px auto 24px auto;
   border: none;
   text-align: center;
   overflow-y: hidden;
@@ -315,4 +322,64 @@ a:hover{
   max-width: 100%;
   max-height: 100%;
   box-sizing: border-box;
+}
+
+
+/* Third Prompt */
+
+#treeview{
+  background-color: #bbb;
+  border-radius: 20px;
+  min-height: 20px;
+  padding: 15px;
+  width: auto;
+  min-width: 200px;
+  max-width: 600px;
+}
+
+.branch {
+  color: #333;
+  padding: 15px;
+  border-radius: 2px;
+  background-color: #eee;
+  transition: 50ms;
+  display: block;
+  margin: 10px;
+}
+
+input + label {
+  color: #333;
+  padding: 15px;
+  border-radius: 4px;
+  background-color: #eee;
+  width: 100%;
+}
+
+.tree-item:hover {
+  scale: 1.05;
+}
+
+
+
+.drp-dwn{
+  height: 0px;
+  width: 0px;
+  margin: 0px;
+  transition: 100ms;
+  font-size: 0px;
+  overflow: hidden;
+  background-color: #0000;
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+input[type="checkbox"]:checked + label + .drp-dwn{
+  display: block;
+  height: fit-content;
+  width: auto;
+  padding: 5px;
+  font-size: medium;
+  margin-left: 10px;
 }
